@@ -5,33 +5,67 @@ import mongoose from 'mongoose'
 const Contact = mongoose.model('Contact', contactsSchema, 'contacts');
 const Address = mongoose.model('Address', addressSchema, 'contacts');
 
-const addNewAddress = (req, res) => {
+const addNewAddress =  function(req, res, next){
+    console.log("Got into address")
     let newAddress = new Address(req.body);
-
     newAddress.save((err, data) => {
         if (err){
-            res.send(err);
+            next(err);
         }
-        return (res.json(data));
+        console.log("returning data")
+        // return (data);
+        // next();
     });
 }
 
+// app.route('/contact')
+//     .get((req, res, next) => {
+//         console.log(`Request from: ${req.originalUrl}`);
+//         console.log(`Request Type: ${req.method}`);
+//         console.log(`Request: ${req}`);
+//         next();
+    
+//     }, getAllContacts)
 
-export const addNewContact = (req, res) => {
+//     // .post(addDetails),
+
+//     .post(addNewContact)
+//     // .post(addNewContacts)
+
+//     app.route('/contact/:contactId')
+
+//     .get(getContactById)
+
+//     .put(updateContact)
+
+// }
+
+
+export const addNewContact = ((req, res, next)=>{
+    console,log("Inside add new contacts")
     let newContact = new Contact(req.body);
     // let newAdress = new Address(req.body)
     newContact.save((err, data) => {
         if (err){
-            res.send(err);
+            next(err);
         }
-        res.json(data);
-        // next();
-        addNewAddress(req, res);
-        
-     });
-     
-}
+        console.log("calling next")
+    }); 
+    next();
+}, addNewAddress)
 
+
+export const addNewContacts = (req, res, next) => {
+    let newContact = new Contact(req.body);
+    // let newAdress = new Address(req.body)
+    newContact.save((err, data) => {
+        if (err){
+            next(err);
+        }
+        // res.json(data);
+        next();
+        })
+    }
 
 
 export const updateContact = (req, res) => {

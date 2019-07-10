@@ -1,5 +1,6 @@
 import {
     addNewContact,
+    addNewContacts,
     updateContact,
     getAllContacts,
     getContactById,
@@ -29,6 +30,7 @@ const routes = (app) => {
     // .post(addDetails),
 
     .post(addNewContact)
+    // .post(addNewContacts)
 
     app.route('/contact/:contactId')
 
