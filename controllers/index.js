@@ -18,28 +18,6 @@ const addNewAddress =  function(req, res, next){
     });
 }
 
-// app.route('/contact')
-//     .get((req, res, next) => {
-//         console.log(`Request from: ${req.originalUrl}`);
-//         console.log(`Request Type: ${req.method}`);
-//         console.log(`Request: ${req}`);
-//         next();
-    
-//     }, getAllContacts)
-
-//     // .post(addDetails),
-
-//     .post(addNewContact)
-//     // .post(addNewContacts)
-
-//     app.route('/contact/:contactId')
-
-//     .get(getContactById)
-
-//     .put(updateContact)
-
-// }
-
 
 export const addNewContact = ((req, res, next)=>{
     console,log("Inside add new contacts")
