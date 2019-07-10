@@ -20,7 +20,7 @@ const addNewAddress = async function(req, res, next){
 
 
 export const addNewContact = (async (req, res, next)=>{
-    console,log("Inside add new contacts")
+    console.log("Inside add new contacts")
     let newContact = new Contact(req.body);
     // let newAdress = new Address(req.body)
     newContact.save((err, data) => {
