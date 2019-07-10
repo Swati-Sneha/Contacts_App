@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 const Contact = mongoose.model('Contact', contactsSchema, 'contacts');
 const Address = mongoose.model('Address', addressSchema, 'contacts');
 
-const addNewAddress =  function(req, res, next){
+const addNewAddress = async function(req, res, next){
     console.log("Got into address")
     let newAddress = new Address(req.body);
     newAddress.save((err, data) => {
@@ -19,7 +19,7 @@ const addNewAddress =  function(req, res, next){
 }
 
 
-export const addNewContact = ((req, res, next)=>{
+export const addNewContact = (async (req, res, next)=>{
     console,log("Inside add new contacts")
     let newContact = new Contact(req.body);
     // let newAdress = new Address(req.body)
