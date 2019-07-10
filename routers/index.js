@@ -5,6 +5,16 @@ import {
     getContactById,
 } from '../controllers'
 
+// async function addDetails=(){
+    
+//     addNewAddress;
+//     // await addNewContact
+//     // await addNewAddress
+//     // const newAddress = addNewAddress;
+//     // return (newContact, newAddress)
+//     // return newContact;
+// }
+
 
 const routes = (app) => {
     app.route('/contact')
@@ -16,13 +26,15 @@ const routes = (app) => {
     
     }, getAllContacts)
 
-    .post(addNewContact);
+    // .post(addDetails),
+
+    .post(addNewContact)
 
     app.route('/contact/:contactId')
 
     .get(getContactById)
 
-    .put(updateContact);
+    .put(updateContact)
 
 }
 
